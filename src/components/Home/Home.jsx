@@ -22,6 +22,8 @@ const Home = ({bars, setVideoPlaying, videoPlaying})=>{
         setVideo(items)
         console.log(items)
     }
+
+    
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(menu("home"))
