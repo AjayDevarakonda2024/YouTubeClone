@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { menu } from "../Slice/MenuSlice";
 import axios from "axios";
 import { API_KEY } from "../../data";
-import './shorts.css'
+import './Shorts.css'
 
 const Shorts = ()=>{
     const dispatch = useDispatch();
