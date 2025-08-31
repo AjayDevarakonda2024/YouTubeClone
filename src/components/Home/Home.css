@@ -145,10 +145,18 @@
 @media(max-width : 576px){
 
     .categories{
-        max-width: 95vw;
+        max-width: 97vw;
+        padding-left: 5px;
     }
 
     .video{
-        width: 90%;
+        width: 100%;
+        padding: 5px;
+
     }
+
+    .video .img{
+        border-radius: 10px;
+    }
+
 }

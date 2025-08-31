@@ -156,3 +156,9 @@ h1{
     }
 
 }
+
+@media(max-width : 576px){
+    .app{
+        padding: 0;
+    }
+}
