@@ -1,0 +1,113 @@
+.nav_bar{
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+    
+}
+
+.nav_bar_child_left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_bar_child_left i{
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.nav_bar_child_left i:hover{
+    cursor: pointer;
+    background-color: #F2F2F2;
+}
+
+.nav_bar_child_left_image{
+    width: 100px;
+    height: 50px;
+    background: url("https://vectorseek.com/wp-content/uploads/2021/01/Youtube-Logo-Vector-scaled.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    overflow: hidden;
+}
+
+.nav_bar_child_middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_bar_child_middle_search input{
+    width: 550px;
+    height: 40px;
+    border-radius: 50px 0 0 50px;
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.nav_bar_child_middle_search button{
+    width: 50px;
+    height: 40px;
+    border-radius: 0 50px 50px 0;
+    border: 1px solid lightgray;
+}
+
+.nav_bar_child_middle_mic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px 50px 50px 50px;
+    background-color: lightgray;
+    position: relative;
+}
+
+.nav_bar_child_middle_mic i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.nav_bar_child_right{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_bar_child_right_create_button{
+    width: 100px;
+    height: 35px;
+    border-radius: 50px;
+    border: none;
+}
+
+.nav_bar_child_right_account{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: rgb(255, 132, 0);
+    border:  none;
+}
+
+.nav_bar_child_right_account h3{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+@media(max-width : 992px){
+
+    .nav_bar_child_middle{
+        display: none;
+    }
+
+}

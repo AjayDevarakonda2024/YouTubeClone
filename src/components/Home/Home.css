@@ -1,0 +1,154 @@
+.categories{
+    display: flex;
+    width: 100%;
+    max-width: 79vw;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 10px;
+    position: sticky;
+    top: 50px;
+    background-color: white;
+    padding: 10px 0 10px 0;
+
+}
+
+.categories::-webkit-scrollbar{
+    display: none;
+}
+
+.categories p{
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+}
+
+.categories1{
+    display: flex;
+    width: 100%;
+    max-width: 92vw;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 10px;
+    position: sticky;
+    top: 50px;
+    background-color: white;
+    padding: 10px;
+}
+
+.categories1::-webkit-scrollbar{
+    display: none;
+}
+
+.categories1 p{
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+}
+
+.video{
+    width: 390px;
+    margin-bottom: 10px;
+}
+
+.video .img{
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.img img{
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video h4{
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.video p{
+    margin-top: 5px;
+    color: rgb(107, 107, 107);
+    margin-bottom: 0;
+    font-size:medium;
+}
+
+.video1 {
+    width: 455px;
+    margin-bottom: 10px;
+}
+
+.video1 .img{
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.img img{
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video1 h4{
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.video1 p{
+    margin-top: 5px;
+    color: rgb(107, 107, 107);
+    margin-bottom: 0;
+    font-size:medium;
+}
+
+@media(max-width : 992px){
+
+    .categories{
+        max-width: 95vw;
+    }
+
+    .video{
+        width: 47%;
+    }
+}
+
+
+@media(max-width : 576px){
+
+    .categories{
+        max-width: 95vw;
+    }
+
+    .video{
+        width: 90%;
+    }
+}

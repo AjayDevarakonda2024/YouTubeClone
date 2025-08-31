@@ -1,0 +1,158 @@
+.app{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1{
+    margin: 0;
+}
+
+.main{
+    display: flex;
+
+    margin-top: 5px;
+}
+
+.links{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    height: 650px;
+    position: sticky;
+    top: 50px;
+    margin-right: 50px;
+}
+
+.links::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+.links1 p{
+    display: none;
+}
+
+.links1 {
+    height: 650px;
+    position: sticky;
+    top: 50px;
+}
+
+.links1 hr{
+    display: none;
+}
+
+.links1 h4{
+    display: none;
+}
+
+.links1 .Link_not_active, .links1 .Link_active {
+    padding: 0;
+    background-color: transparent;
+    margin-right: 15px;
+    margin-left: 10px;
+
+}
+
+.links1 .Link_not_active:hover{
+    background-color: transparent;
+}
+
+.links1 i{
+    font-size: 1.5rem;
+    justify-self: center;
+}
+
+.links1 .Link_not_active img, .links1 .Link_active img{
+    width: 30px;
+    border-radius: 50%;
+}
+
+    
+
+.Link_not_active{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.Link_not_active:hover{
+    background-color: #F2F2F2;
+}
+
+.i{
+    font-size: 1.5rem;
+    color: transparent;
+    -webkit-text-stroke: 1px #282828;
+}
+
+.Link_not_active img, .Link_active img{
+    width: 20%;
+    border-radius: 50%;
+}
+
+.Link_not_active p, .Link_active p{
+    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 540;
+}
+
+.Link_active{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F2F2F2;
+}
+
+.Link_active i{
+    color: #282828;
+    -webkit-text-stroke: 1px #282828;
+}
+
+.links_connections{
+    flex: 6;
+    display: flex;
+    justify-content: start;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.links2{
+    display: none;
+}
+
+@media(max-width : 992px){
+    .app{
+        padding: 5px;
+    }
+
+    .links{
+        display: none;
+    }
+
+    .main{
+        display: flex;
+        justify-content: center;
+    }
+
+    .links_connections{
+        display: flex;
+        justify-content: center;
+    }
+
+}
