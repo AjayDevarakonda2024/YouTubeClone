@@ -4,6 +4,7 @@ import axios from 'axios';
 import { API_KEY } from '../../data';
 import { useEffect, useState } from 'react';
 import { views } from '../../data';
+import moment from 'moment';
 
 const Video = ({videoPlaying, setVideoPlaying})=>{
 
@@ -58,7 +59,24 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
                                     <p>{videoPlay?videoPlay.snippet.channelTitle: "channel tittle"}</p>
                                     <span>{videoContent? `${views(videoContent.statistics.subscriberCount)} subscribers`: "subscribers count"}</span>
                                 </div>
+                                <button>Subscribe</button>
                             </div>
+                            <div className='videoPlayItems_right'>
+                                <div>
+                                    <i className='fa fa-thumbs-up'></i>
+                                    <span>{videoPlay?views(videoPlay.statistics.likeCount): "likecount"}</span>
+                                    <i className='fa fa-thumbs-down'></i>
+                                </div>
+                                <div>
+                                    <i className='fa fa-share'></i>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='videoPlayItems_descreption'>
+                            <span>{videoPlay?views(videoPlay.statistics.viewCount): "view count"} views</span>
+                            <span>{videoPlay?moment(videoPlay.snippet.publishedAt).fromNow(): "published at"}</span>
                         </div>
         </div>
     )
