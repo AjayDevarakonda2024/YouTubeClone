@@ -75,8 +75,8 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
                         </div>
 
                         <div className='videoPlayItems_descreption'>
-                            <span>{videoPlay?views(videoPlay.statistics.viewCount): "view count"} views</span>
-                            <span>{videoPlay?moment(videoPlay.snippet.publishedAt).fromNow(): "published at"}</span>
+                            <span className='span'>{videoPlay?views(videoPlay.statistics.viewCount): "view count"} views</span>
+                            <span className='span'>{videoPlay?moment(videoPlay.snippet.publishedAt).fromNow(): "published at"}</span>
                             <br></br>
                             <span>{videoContent?videoContent.snippet.description : "description"}</span>
                         </div>
