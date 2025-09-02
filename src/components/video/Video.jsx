@@ -48,9 +48,19 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
         console.log(items)
     }
 
+    const comments = async ()=>{
+        const res = await axios.get(
+            `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${id}&key=${API_KEY}`
+        )
+        let {data} = res
+        let {items} = data
+        console.log(items)
+    }
+
     useEffect(()=>{
         video_data()
         recommended_video_data()
+        comments()
         window.scrollTo({top : 0, behavior: "smooth"})
     },[categoryId, id])
 
@@ -118,6 +128,7 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
                             <br></br>
                             <span className='description'>{description} <span id='showMore' onClick={()=>{!showMore ? setShowMore(true) : setShowMore(false)}}></span></span>
                         </div>
+                        <div><h2>{videoPlay?views(videoPlay.statistics.commentCount): "comment"} Comments</h2></div>
         </div>
         <div className='videoSuggestion'>
             {

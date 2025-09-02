@@ -12,6 +12,7 @@
 
 .videoPlay{
     flex: 1.5;
+    padding-left: 5%;
 }
 
 .videoPlay iframe{
@@ -120,7 +121,7 @@
 
 .recommendedVideos img{
     width: 170px;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 .recommendedVideos h5, .recommendedVideos p{
@@ -172,6 +173,7 @@
     .videoPlay{
         width: 100%;
         margin: 0;
+        padding: 0;
     }
 
     .videoPlay h2, .videoPlayItems, .videoPlayItems_descreption{

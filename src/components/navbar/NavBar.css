@@ -112,3 +112,11 @@
     }
 
 }
+
+@media(max-width : 1200px){
+
+    .nav_bar_child_middle{
+        display: none;
+    }
+
+}
