@@ -1,3 +1,9 @@
+#showMore{
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+}
+
 .videopage{
     display: flex;
     justify-content: center;
@@ -132,11 +138,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 20px;
     }
 
     .videopage .videoSuggestion{
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -167,6 +174,11 @@
         margin: 0;
     }
 
+    .videoPlay h2, .videoPlayItems, .videoPlayItems_descreption{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
 
     .videoPlay iframe{
         width: 100% !important;
@@ -174,6 +186,10 @@
         aspect-ratio: 16 / 9;
         border-radius: 0;
         display: block;
+    }
+
+    .data h5, .data p{
+        margin-bottom: 5px;
     }
 }
 

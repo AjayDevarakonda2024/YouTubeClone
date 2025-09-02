@@ -51,7 +51,7 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
     useEffect(()=>{
         video_data()
         recommended_video_data()
-    },[categoryId])
+    },[categoryId, id])
 
     useEffect(()=>{
         video_content()
