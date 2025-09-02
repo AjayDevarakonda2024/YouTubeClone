@@ -51,10 +51,14 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
     useEffect(()=>{
         video_data()
         recommended_video_data()
+        window.scrollTo({top : 0, behavior: "smooth"})
     },[categoryId, id])
 
     useEffect(()=>{
-        video_content()
+        if(videoPlay){
+            video_content()
+        }
+        
     },[videoPlay])
 
     useEffect(()=>{
@@ -62,13 +66,20 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
     },[])
 
     useEffect(()=>{
+        let showmore = document.getElementById("showMore")
         let words = videoContent?.snippet?.description || "";
         let desc = words.split(" ")
         if (desc.length > 30 && !showMore){
            setDescription(desc.slice(0, 30).join(' ')+ "...");
+           showmore.innerText = "more"
+        }
+        else if(desc.length > 0 && showMore){
+            setDescription(words);
+            showmore.innerText = "show less"
         }
         else{
             setDescription(words);
+            showmore.innerText = ""
         }
 
     },[videoContent, showMore])
@@ -105,7 +116,7 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
                             <span className='span'>{videoPlay?views(videoPlay.statistics.viewCount): "view count"} views</span>
                             <span className='span'>{videoPlay?moment(videoPlay.snippet.publishedAt).fromNow(): "published at"}</span>
                             <br></br>
-                            <span className='description'>{description} <span id='showMore' onClick={()=>{!showMore ? setShowMore(true) : setShowMore(false)}}>more</span></span>
+                            <span className='description'>{description} <span id='showMore' onClick={()=>{!showMore ? setShowMore(true) : setShowMore(false)}}></span></span>
                         </div>
         </div>
         <div className='videoSuggestion'>
