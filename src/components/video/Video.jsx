@@ -5,12 +5,16 @@ import { API_KEY } from '../../data';
 import { useEffect, useState } from 'react';
 import { views } from '../../data';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const Video = ({videoPlaying, setVideoPlaying})=>{
 
     const {categoryId, id} = useParams();
     const [videoPlay, setVideoPlay] = useState(null)
     const [videoContent, setVideoContent] = useState(null)
+    const [description, setDescription] = useState("")
+    const [showMore, setShowMore] = useState(false)
+    const [recommended, SetRecommended] = useState([])
 
     const video_data = async ()=>{
         const res = await axios.get(
@@ -25,8 +29,7 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
 
     const video_content = async ()=>{
         const res = await axios.get(
-            `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${videoPlay?videoPlay.snippet.channelId : ""
-}&key=${API_KEY}`
+            `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${videoPlay?videoPlay.snippet.channelId : ""}&key=${API_KEY}`
         )
 
         let {data} = res
@@ -35,9 +38,20 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
         console.log(items)
     }
 
+    const recommended_video_data = async ()=>{
+        const res = await axios.get(
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`
+        )
+        let {data} = res
+        let {items} = data
+        SetRecommended(items)
+        console.log(items)
+    }
+
     useEffect(()=>{
         video_data()
-    },[])
+        recommended_video_data()
+    },[categoryId])
 
     useEffect(()=>{
         video_content()
@@ -47,7 +61,20 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
         setVideoPlaying(true);
     },[])
 
+    useEffect(()=>{
+        let words = videoContent?.snippet?.description || "";
+        let desc = words.split(" ")
+        if (desc.length > 30 && !showMore){
+           setDescription(desc.slice(0, 30).join(' ')+ "...");
+        }
+        else{
+            setDescription(words);
+        }
+
+    },[videoContent, showMore])
+
     return(
+        <div className='videopage'>
         <div className='videoPlay'>
             <iframe src= {`https://www.youtube.com/embed/${id}?autoplay=1`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             <h2>{videoPlay?videoPlay.snippet.title: "tittle here"}</h2>
@@ -78,8 +105,27 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
                             <span className='span'>{videoPlay?views(videoPlay.statistics.viewCount): "view count"} views</span>
                             <span className='span'>{videoPlay?moment(videoPlay.snippet.publishedAt).fromNow(): "published at"}</span>
                             <br></br>
-                            <span>{videoContent?videoContent.snippet.description : "description"}</span>
+                            <span className='description'>{description} <span id='showMore' onClick={()=>{!showMore ? setShowMore(true) : setShowMore(false)}}>more</span></span>
                         </div>
+        </div>
+        <div className='videoSuggestion'>
+            {
+                        recommended.map((element)=>{
+                            return(
+                                <Link className='recommendedVideos' key={element.id} to={`/video/${element.snippet.categoryId}/${element.id}`}>
+                                    <div className='logo'>
+                                        <img src={element.snippet.thumbnails.medium.url} alt={element.snippet.title}></img>
+                                    </div>
+                                    <div className='data'>
+                                        <h5>{element.snippet.title}</h5>
+                                        <p>{element.snippet.channelTitle}</p>
+                                        <p>{views(element.statistics.viewCount)} views &bull; {moment(element.snippet.publishedAt).fromNow()}</p>
+                                    </div>
+                                </Link>
+                            )
+                        })
+                    }
+        </div>
         </div>
     )
 }

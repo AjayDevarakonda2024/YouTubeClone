@@ -1,15 +1,20 @@
+.videopage{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 .videoPlay{
-    margin: 0 50px 0 50px;
+    flex: 1.5;
 }
 
 .videoPlay iframe{
-    width: 800px;
-    height: 450px;
+    width: 900px;
+    aspect-ratio: 16/9;
     border-radius: 10px;
 }
 
 .videoPlay h2{
-    margin: 10px 15px 10px 15px;
     text-align: justify;
 }
 
@@ -19,7 +24,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin: 0 15px 10px 15px;
+    margin-bottom: 10px;
 }
 
 .videoPlayImg{
@@ -80,7 +85,6 @@
     background-color: #F2F2F2;
     border-radius: 20px;
     text-align: justify;
-    margin: 0 15px 0 15px;
 }
 
 .videoPlayItems_descreption .span{
@@ -93,8 +97,70 @@
     color: black;
 }
 
+.videoSuggestion{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recommendedVideos{
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.recommendedVideos img{
+    width: 170px;
+    border-radius: 10px;
+}
+
+.recommendedVideos h5, .recommendedVideos p{
+    margin: 0;
+}
+
+.recommendedVideos p{
+    font-size: small;
+}
+
 
 @media(max-width : 576px){
+
+    .videopage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .videopage .videoSuggestion{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .recommendedVideos{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+        gap: 10px;
+    }
+
+    .recommendedVideos .logo, .recommendedVideos .data{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .recommendedVideos .logo img{
+        width: 100%;
+    }
 
     .videoPlay{
         width: 100%;
