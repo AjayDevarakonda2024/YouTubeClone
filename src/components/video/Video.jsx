@@ -15,6 +15,7 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
     const [description, setDescription] = useState("")
     const [showMore, setShowMore] = useState(false)
     const [recommended, SetRecommended] = useState([])
+    const [videoComments, setVideoComments] = useState([])
 
     const video_data = async ()=>{
         const res = await axios.get(
@@ -55,6 +56,7 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
         let {data} = res
         let {items} = data
         console.log(items)
+        setVideoComments(items)
     }
 
     useEffect(()=>{
@@ -129,6 +131,33 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
                             <span className='description'>{description} <span id='showMore' onClick={()=>{!showMore ? setShowMore(true) : setShowMore(false)}}></span></span>
                         </div>
                         <div><h2>{videoPlay?views(videoPlay.statistics.commentCount): "comment"} Comments</h2></div>
+                        <div className='videoComments_head'>
+                            {
+                                videoComments.map((element, index)=>{
+                                    return(
+                                        
+                                            <div key={index} className='videoComments'>
+                                                <div className='videoComments_image'>
+                                                    <img src={element.snippet.topLevelComment.snippet.authorProfileImageUrl}></img>
+                                                </div>
+                                                <div className='videoComments_content'>
+                                                    <div className='videoComments_content_userdata'>
+                                                        <h5>{element.snippet.topLevelComment.snippet.authorDisplayName}</h5>
+                                                        <span>{moment(element.snippet.topLevelComment.snippet.publishedAt).fromNow()}</span>
+                                                    </div>
+                                                    <p>{element.snippet.topLevelComment.snippet.textOriginal}</p>
+                                                    <div className='videoComments_content_likes'>
+                                                        <span><i className='fa fa-thumbs-up'></i> {element.snippet.topLevelComment.snippet.likeCount}</span>
+                                                        <span><i className='fa fa-thumbs-down'></i></span>
+                                                        <span>Reply</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                    )
+                                })
+                            }
+                        </div>
         </div>
         <div className='videoSuggestion'>
             {

@@ -52,7 +52,7 @@ function App() {
         </div>
         <div className='links_connections'>
           <Routes>
-            <Route path='/' element={<Home bars={bars}videoPlaying={videoPlaying} setVideoPlaying = {setVideoPlaying}></Home>}></Route>
+            <Route path='/' element={<Home bars={bars} videoPlaying={videoPlaying} setVideoPlaying = {setVideoPlaying}></Home>}></Route>
             <Route path='/shorts' element={<Shorts></Shorts>}></Route>
             <Route path='/subcriptions' element={<Subcriptions></Subcriptions>}></Route>
             <Route path='/you' element={<You></You>}></Route>
