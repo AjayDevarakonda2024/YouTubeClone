@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { menu } from '../Slice/MenuSlice';
 
 
-const NavBar = ({setBars, bars})=>{
+const NavBar = ({setBars, bars, setSideNav})=>{
     const dispatch = useDispatch();
     const ref1 = useRef(null);
     const set_bars = ()=>{
@@ -17,7 +17,8 @@ const NavBar = ({setBars, bars})=>{
         <>
             <div className="nav_bar">
                 <div className="nav_bar_child_left">
-                    <i className="fa fa-bars" onClick={()=>set_bars()}></i>
+                    <i className="fa fa-bars non_responsive_nav" onClick={()=>set_bars()}></i>
+                    <i className="fa fa-bars responsive_nav" onClick={()=>{setSideNav(true)}}></i>
                     <Link  to='/' onClick={()=>dispatch(menu("home"))}>
                         <div className="nav_bar_child_left_image"></div>
                     </Link>

@@ -16,17 +16,31 @@ import YourVideos from './components/YourVideos/YourVideos'
 import WatchLater from './components/WatchLater/WatchLater'
 import Video from './components/video/Video'
 import LikedVideos from './components/LikedVideos/LikedVideos'
+import { videoCategories } from './data';
 
 function App() {
   const currentMenu = useSelector((state) => state.menu.page);
   const dispatch = useDispatch();
   const [bars, setBars] = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(false)
+  const [categoryId, setCategoryId] = useState(0)
+  const [sidenav, setSideNav] = useState(false)
   return (
     <>
+    <div className={sidenav?'responsive_sidebar': "responsive_sidebar1"}>
+      <i className="fa fa-bars responsive_sidebar_i" onClick={()=>setSideNav(false)}></i>
+      <hr></hr>
+      {
+            videoCategories.map((element, index) => {
+                return(
+                    <p key={index} onClick={()=>{setCategoryId(element.id), setSideNav(false)}}>{element.name}</p>
+                )
+            })
+        }
+    </div>
     <div className='app'>
       <BrowserRouter>
-      <NavBar setBars={setBars} bars={bars}></NavBar>
+      <NavBar setBars={setBars} bars={bars} setSideNav={setSideNav}></NavBar>
       <div className='main'>
         <div className={videoPlaying ? "links2" : !bars ? "links " : "links1"}>
           <Link  to='/' className={currentMenu === "home" ? "Link_active ":"Link_not_active"} onClick={()=>dispatch(menu("home"))}><i className='fa fa-home i'></i><p>Home</p></Link>
@@ -52,7 +66,7 @@ function App() {
         </div>
         <div className='links_connections'>
           <Routes>
-            <Route path='/' element={<Home bars={bars} videoPlaying={videoPlaying} setVideoPlaying = {setVideoPlaying}></Home>}></Route>
+            <Route path='/' element={<Home bars={bars} videoPlaying={videoPlaying} setVideoPlaying = {setVideoPlaying} categoryId={categoryId} setCategoryId={setCategoryId}></Home>}></Route>
             <Route path='/shorts' element={<Shorts></Shorts>}></Route>
             <Route path='/subcriptions' element={<Subcriptions></Subcriptions>}></Route>
             <Route path='/you' element={<You></You>}></Route>

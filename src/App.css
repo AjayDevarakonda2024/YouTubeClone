@@ -1,6 +1,61 @@
 .app{
     padding-left: 20px;
     padding-right: 20px;
+    position: relative;
+}
+
+.responsive_sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    background-color: white;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+    transition: all 05s ease;
+    box-shadow: 4px 0px 8px rgba(66, 66, 66, 0.879);
+}
+
+.responsive_sidebar_i{
+    cursor: pointer;
+    padding: 10px;
+    
+    
+}
+
+.responsive_sidebar_i:hover{
+    background-color: #F2F2F2;
+}
+
+.responsive_sidebar p{
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+
+.responsive_sidebar hr{
+    width: 100%;
+    height: 1px;
+    border: 1px solid #dfdfdf;
+}
+
+.responsive_sidebar p:hover{
+    background-color: #F2F2F2;
+}
+
+.responsive_sidebar::-webkit-scrollbar{
+    display: none;
+}
+
+.responsive_sidebar1{
+    display: none;
 }
 
 h1{

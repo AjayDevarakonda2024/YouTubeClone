@@ -10,9 +10,8 @@ import { views } from '../../data';
 import moment from 'moment'
 import { videoCategories } from '../../data';
 
-const Home = ({bars, setVideoPlaying, videoPlaying})=>{
+const Home = ({bars, setVideoPlaying, videoPlaying, categoryId, setCategoryId})=>{
     const [video, setVideo] = useState([])
-    const [categoryId, setCategoryId] = useState(0)
     const get_data = async ()=>{
         const res = await axios.get(
             `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`
