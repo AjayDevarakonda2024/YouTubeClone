@@ -129,13 +129,13 @@
 }
 
 .recommendedVideos p{
-    font-size: small;
+    font-size: 13px;
 }
 
 .videoComments_head{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
 .videoComments{
@@ -154,12 +154,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 5px;
+    gap: 10px;
 }
 
 .videoComments_content p{
     font-weight: 100;
-    font-size: small;
+    font-size: 14px;
 }
 
 .videoComments_content_userdata{
@@ -181,6 +181,63 @@
 .videoComments_content_likes i{
     color: transparent;
     -webkit-text-stroke: 1px black;
+}
+
+@media(max-width : 992px){
+
+    .videopage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .videoPlay{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .videoPlay iframe{
+        width: 100% !important;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 0;
+        display: block;
+    }
+
+    .videoComments_head{
+        display: none;
+    }
+
+    .videopage .videoSuggestion{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .recommendedVideos{
+        width: 31%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+        gap: 10px;
+    }
+
+    .recommendedVideos .logo, .recommendedVideos .data{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .recommendedVideos .logo img{
+        width: 100%;
+    }
 }
 
 
@@ -250,59 +307,3 @@
     }
 }
 
-@media(max-width : 992px){
-
-    .videopage{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .videoPlay{
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-
-    .videoPlay iframe{
-        width: 100% !important;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        border-radius: 0;
-        display: block;
-    }
-
-    .videoComments_head{
-        display: none;
-    }
-
-    .videopage .videoSuggestion{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 20px;
-    }
-
-    .recommendedVideos{
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: start;
-        gap: 10px;
-    }
-
-    .recommendedVideos .logo, .recommendedVideos .data{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .recommendedVideos .logo img{
-        width: 100%;
-    }
-}

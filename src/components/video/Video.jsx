@@ -62,20 +62,22 @@ const Video = ({videoPlaying, setVideoPlaying})=>{
     useEffect(()=>{
         video_data()
         recommended_video_data()
-        comments()
+        
         window.scrollTo({top : 0, behavior: "smooth"})
     },[categoryId, id])
 
     useEffect(()=>{
-        if(videoPlay){
             video_content()
-        }
         
     },[videoPlay])
 
     useEffect(()=>{
         setVideoPlaying(true);
     },[])
+
+    useEffect(()=>{
+        comments()
+    },[id])
 
     useEffect(()=>{
         let showmore = document.getElementById("showMore")
